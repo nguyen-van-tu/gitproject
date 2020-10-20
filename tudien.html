@@ -18,19 +18,19 @@
 />
 <script>
     let vietNamese = [
-        "màu đỏ",
-        "màu xanh biển",
-        "màu vàng",
-        "màu đen",
-        "màu trắng"
+        "con chó",
+        "con mèo",
+        "con gà",
+        "con lợn",
+        "con vịt"
     ];
-    let english = ["red", "blue", "yellow", "black", "white"];
+    let english = ["dog", "cat", "chicken", "pig", "duck"];
 
     function search() {
         let key = document.getElementById("key").value;
-        let result = english.indexOf(key.toLowerCase().trim());
+        let result = vietNamese.indexOf(key.toLowerCase().trim());
         if (result !== -1) {
-            alert(vietNamese[result]);
+            alert(english[result]);
         } else {
             alert("Word not found");
         }
