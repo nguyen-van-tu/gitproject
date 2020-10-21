@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Số Nguyên tố đầu tiên</title>
+</head>
+<body>
+<script>
+    function checkPrimer(number) {
+        if (number < 2) return false;
+        if (number === 2) return true;
+        if (number % 2 == 0) return false;
+        for (let i = 2; i * i <= number; i++) {
+            if (number % i == 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    let count = 0;
+    let i = 0;
+    while (count < 20) {
+        if (checkPrimer(i)) {
+            document.write(i + "\n");
+            count++;
+        }
+        i++;
+    }
+</script>
+</body>
+</html>
