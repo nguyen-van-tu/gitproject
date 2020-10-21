@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        let nameString = [
+            "Polaris",
+            "Aldebaran",
+            "Deneb",
+            "Vega",
+            "Altair",
+            "Dubhe",
+            "Regulus"
+        ];
+        let constellationString = [
+            "Ursa Minor",
+            "Tarurus",
+            "Cygnus",
+            "Lyra",
+            "Aquila",
+            "Ursa Major",
+            "Leo"
+        ];
+
+        let input = prompt("Nhập tên sao : ");
+        let result = nameString.indexOf(input.trim());
+        if(result !== -1) {
+            document.write(constellationString[result]);
+        } else {
+            document.write('Not found');
+        }
+    </script>
+</body>
+</html>

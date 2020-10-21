@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>title</title>
+</head>
+<body>
+<script>
+    function run(number1, number2) {
+        if (number1 > number2) {
+            alert("Giá trị tham số 1 lớn hơn giá trị tham số 2");
+        } else {
+            return number1 + number2;
+        }
+    }
+    let result = run(+prompt("Enter number1"), +prompt("Enter number 2"));
+    result = result === undefined ? 0: result;
+    document.write("Result = " + result);
+</script>
+</body>
+</html>
