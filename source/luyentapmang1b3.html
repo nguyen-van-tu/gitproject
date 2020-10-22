@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        let arr = [1, 2, 44, 66, 6, 12, 34, 24, 56, 67];
+        document.write("Số lớn nhất là = " + Math.max(...arr) + "<br>");
+        document.write(
+            "average =" + arr.reduce(function(total , e){
+                return total + e;
+            },
+                0)/ arr.length
+        ) ;
+    </script>
+</body>
+</html>

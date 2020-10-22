@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let str = [-35, 34, -77, -5, -7, 24, -99, -46, 345];
+    let result = str.split(" ").reduce(function(total, e) {
+        return total + (parseInt(e) < 0);
+    }, 0);
+    document.write("có "+result+" số nguyên âm");
+</script>
+</body>
+</html>
