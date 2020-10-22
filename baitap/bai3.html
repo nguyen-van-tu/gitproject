@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        let input = (window.prompt());
+        let output = '';
+        for (let x = 0; x < input.length; x++){
+            if (input[x].toUpperCase()===input[x]){
+               output=output+ input[x].toLowerCase();
+            }
+            else {
+                output=output+ input[x].toUpperCase();
+
+            }
+        }
+        console.log(output)
+    </script>
+</body>
+</html>
