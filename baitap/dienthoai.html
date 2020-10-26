@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Demo Mobile</title>
+    <script src="Mobile.js"></script>
+</head>
+<style>
+    .mobile {
+        border: 1px solid;
+        width: 300px;
+        text-align: center;
+        display: inline-block;
+    }
+
+    textarea {
+        height: 120px;
+    }
+
+    input {
+        width: 200px;
+        margin-top: 10px;
+        margin-bottom: 20px;
+    }
+
+    .mobile:hover {
+        /* Start the shake animation and make the animation last for 0.5 seconds */
+        animation: shake 0.5s;
+
+        /* When the animation is finished, start again */
+        animation-iteration-count: infinite;
+    }
+
+    @keyframes shake {
+        0% { transform: translate(1px, 1px) rotate(0deg); }
+        10% { transform: translate(-1px, -2px) rotate(-1deg); }
+        20% { transform: translate(-3px, 0px) rotate(1deg); }
+        30% { transform: translate(3px, 2px) rotate(0deg); }
+        40% { transform: translate(1px, -1px) rotate(1deg); }
+        50% { transform: translate(-1px, 2px) rotate(-1deg); }
+        60% { transform: translate(-3px, 1px) rotate(0deg); }
+        70% { transform: translate(3px, 1px) rotate(-1deg); }
+        80% { transform: translate(-1px, -1px) rotate(1deg); }
+        90% { transform: translate(1px, 2px) rotate(0deg); }
+        100% { transform: translate(1px, -2px) rotate(-1deg); }
+    }
+
+</style>
+<body>
+<div class="mobile">
+    <h1 id="iphone-name">Iphone</h1>
+    <h3 id="iphone-battery">100</h3>
+    <textarea disabled name="inbox" id="iphone-inbox" cols="30" rows="10" placeholder="Inbox"></textarea>
+    <textarea disabled name="outbox" id="iphone-outbox" cols="30" rows="10" placeholder="Outbox"></textarea>
+    <input type="text" id="iphone-msg" oninput="writeMsg(iphone,this.value)" placeholder="write message here...">
+    <button onclick="sendMess(iphone,nokia)">Send</button>
+</div>
+
+<div class="mobile">
+    <h1 id="nokia-name">Iphone</h1>
+    <h3 id="nokia-battery">100</h3>
+    <textarea disabled name="inbox" id="nokia-inbox" cols="30" rows="10" placeholder="Inbox"></textarea>
+    <textarea disabled name="outbox" id="nokia-outbox" cols="30" rows="10" placeholder="Outbox"></textarea>
+    <input type="text" id="nokia-msg" oninput="writeMsg(nokia,this.value)" placeholder="write message here...">
+    <button onclick="sendMess(nokia,iphone)">Send</button>
+</div>
+
+<script>
+    let iphone = new Mobile("iphone");
+    let nokia = new Mobile("nokia");
+
+    // iphone.writeMsg("Hello Nokia");
+    // iphone.sendMsg(nokia);
+    // nokia.writeMsg("Bye!");
+    // nokia.sendMsg(iphone);
+    //
+    // console.log(iphone);
+    // console.log(nokia);
+
+    function display(mobile) {
+        document.getElementById(mobile.name + "-name").innerHTML = mobile.name;
+        document.getElementById(mobile.name + "-battery").innerHTML = mobile.battery;
+        document.getElementById(mobile.name + "-inbox").innerHTML = mobile.inbox;
+        document.getElementById(mobile.name + "-outbox").innerHTML = mobile.outbox;
+        // document.getElementById(mobile.name + "-msg").innerHTML = mobile.msg;
+    }
+
+    function showAll(){
+        display(iphone);
+        display(nokia);
+    }
+
+    function writeMsg(mobile,msg) {
+        mobile.writeMsg(msg);
+    }
+
+    function sendMess(mobile1,mobile2) {
+        mobile1.sendMsg(mobile2);
+        clearInput(mobile1);
+        showAll();
+    }
+
+    function clearInput(mobile) {
+        document.getElementById(mobile.name + "-msg").value = "";
+    }
+
+    showAll();
+
+</script>
+</body>
+</html>
